@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="webp"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-style"></style>
+<style lang="en" type="text/css" id="dark-mode-native-sheet"></style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <title>Web Application Security, Testing, &amp; Scanning - PortSwigger</title>
+        <meta name="description" content="PortSwigger offers tools for web application security, testing, &amp; scanning. Choose from a range of security tools, &amp; identify the very latest vulnerabilities.">
+
+<!--  -->
+        <link href="./index_files/pslandingpages.css" rel="stylesheet" type="text/css">
+        <link rel="preload" href="https://portswigger.net/content/fonts/ps-icons-small/ps-icons-small.woff?td2uot" as="font" crossorigin="anonymous">
+<link rel="preload" href="https://portswigger.net/content/fonts/ps-main/ps-icons.woff?l1la2n" as="font" crossorigin="anonymous">
+<style type="text/css" id="operaUserStyle"></style>
+        
+<!-- --------------------------------HEADER STARTING -->
+        <header class="page-header" id="top">
+            <div class="container">
+                <img src="./index_files/portswigger-logo.svg">
+    <a class="logo" href="https://portswigger.net/"></a>
+    <div class="header-right">
+        <div class="login-buttons">
+                <a class="button-orange-small" href="https://portswigger.net/users">Login</a>
+        </div>
+
+
+    <input type="checkbox" id="hamburger-mobile" class="hamburger-input-mobile">
+    <input type="radio" id="hamburger-desktop" class="hamburger-input-desktop" name="mega-nav-input">
+    <div class="hamburger-menu-mobile">
+        <label class="hamburger-menu-label header-hidden" for="hamburger-mobile" data-ga-click-label="hamburger-mobile">
+            <span class="hamburger-layers"></span>
+        </label>
+    </div>
+    <div class="mega-nav">
+        <input type="radio" id="mega-nav-close" class="mega-nav-input-close" name="mega-nav-input">
+        <input type="radio" id="mega-nav-label-1" class="mega-nav-input-1" name="mega-nav-input">
+        <input type="radio" id="mega-nav-label-2" class="mega-nav-input-2" name="mega-nav-input">
+        <input type="radio" id="mega-nav-label-6" class="mega-nav-input-6" name="mega-nav-input">
+        <input type="radio" id="mega-nav-label-7" class="mega-nav-input-7" name="mega-nav-input">
+
+        <label for="mega-nav-close" class="mega-nav-close"></label>
+        
+
+        <label class="mega-nav-label mega-nav-label-1" for="mega-nav-label-1" data-ga-click-label="products">
+            <span class="mega-nav-text">Products</span>
+            <span class="icon-arrow-head-down"></span>
+        </label>
+        <label class="mega-nav-label mega-nav-label-2" for="mega-nav-label-2" data-ga-click-label="solutions">
+            <span class="mega-nav-text">Solutions</span>
+            <span class="icon-arrow-head-down"></span>
+        </label>
+        <a data-ga-click-label="research" class="mega-nav-link" href="https://portswigger.net/research"><span class="mega-nav-text">Research</span></a>
+        <a data-ga-click-label="academy" class="mega-nav-link" href="https://portswigger.net/web-security"><span class="mega-nav-text">Academy</span></a>
+        <label data-ga-click-label="support" class="mega-nav-label mega-nav-label-6" for="mega-nav-label-6">
+            <span class="mega-nav-text">Support</span>
+            <span class="icon-arrow-head-down"></span>
+        </label>
+
+        <label class="mega-nav-label mega-nav-label-7 header-hidden" for="mega-nav-label-7" data-ga-click-label="company">
+            <span class="mega-nav-text">Company</span>
+            <span class="icon-arrow-head-down"></span>
+        </label>
+        <div class="hamburger-menu-desktop">
+            <label class="hamburger-menu-label header-show" for="hamburger-desktop" data-ga-click-label="hamburger-desktop">
+                <span class="hamburger-layers"></span>
+            </label>
+            
+            <div>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-1" href="https://portswigger.net/customers" data-ga-click-label="customers"><span class="mega-nav-text">Customers</span></a>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-3" href="https://portswigger.net/about" data-ga-click-label="about"><span class="mega-nav-text">About</span></a>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-4" href="https://portswigger.net/blog" data-ga-click-label="blog"><span class="mega-nav-text">Blog</span></a>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-5" href="https://portswigger.net/careers" data-ga-click-label="careers"><span class="mega-nav-text">Careers</span></a>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-6" href="https://portswigger.net/legal" data-ga-click-label="legal"><span class="mega-nav-text">Legal</span></a>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-7" href="https://portswigger.net/contact" data-ga-click-label="contact"><span class="mega-nav-text">Contact</span></a>
+                <a class="hamburger-menu-desktop-link hamburger-menu-desktop-link-8" href="https://portswigger.net/support/reseller-faqs" data-ga-click-label="contact"><span class="mega-nav-text">Resellers</span></a>
+            </div>
+        </div>
+
+       
+        <div class="mega-nav-container">
+
+            <div class="mega-nav-content mega-nav-content-1">
+                <div class="section-white-medium-no-padding">
+                    <div class="container-columns-66-percent-right">
+                        <div>
+                            <a href="https://portswigger.net/burp/enterprise" class="link-block-white" data-ga-click-label="product-enterprise">
+                                <img src="./index_files/enterprise.svg" alt="Burp Suite Enterprise Edition">
+                                <span><strong>Burp Suite Enterprise Edition</strong></span>
+                                <span>The enterprise-enabled dynamic web vulnerability scanner.</span>
+                            </a>
+
+                            <a href="https://portswigger.net/burp/pro" class="link-block-white" data-ga-click-label="product-pro">
+                                <img src="./index_files/professional.svg" alt="Burp Suite Professional">
+                                <span><strong>Burp Suite Professional</strong></span>
+                                <span>The world's #1 web penetration testing toolkit.</span>
+                            </a>
+
+                            <a href="https://portswigger.net/burp/communitydownload" class="link-block-white" data-ga-click-label="product-community">
+                                <img src="./index_files/community.svg" alt="Burp Suite Community Edition">
+                                <span><strong>Burp Suite Community Edition</strong></span>
+                                <span>The best manual tools to start web security testing.</span>
+                            </a>
+
+                            <a href="https://portswigger.net/burp/dastardly" class="link-block-white" data-ga-click-label="product-community">
+                                <img src="./index_files/dastardly.svg" alt="Dastardly, from Burp Suite">
+                                <span><strong>Dastardly, from Burp Suite</strong></span>
+                                <span>Free, lightweight web application security scanning for CI/CD.</span>
+                            </a>
+
+                            <a href="https://portswigger.net/burp" class="chevron-after" data-ga-click-label="products-all">View all product editions</a>
+                        </div>
+
+                        <div>
+                            <div class="container-cards-lists-white">
+                                <a href="https://portswigger.net/burp/vulnerability-scanner" data-ga-click-label="product-burp-scanner">
+                                    <p><strong>Burp Scanner</strong></p>
+                                    <p>Burp Suite's web vulnerability scanner</p>
+                                    <img src="./index_files/burp-suite-scanner.jpg" alt="Burp Suite&#39;s web vulnerability scanner&#39;">
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mega-nav-content mega-nav-content-2">
+                <div class="section-white-medium-no-padding">
+                    <div class="container-columns-66-percent-right">
+                        <div>
+                            <div class="container-columns">
+                                <a href="https://portswigger.net/solutions" class="link-block-white" data-ga-click-label="solutions-application-testing">
+                                    <span><strong>Application Security Testing</strong></span>
+                                    <span>See how our software enables the world to secure the web.</span>
+                                </a>
+                                <a href="https://portswigger.net/solutions/devsecops" class="link-block-white" data-ga-click-label="solutions-devsecops">
+                                    <span><strong>DevSecOps</strong></span>
+                                    <span>Catch critical bugs; ship more secure software, more quickly.</span>
+                                </a>
+
+                                <a href="https://portswigger.net/solutions/penetration-testing" class="link-block-white" data-ga-click-label="solutions-penetration-testing">
+                                    <span><strong>Penetration Testing</strong></span>
+                                    <span>Accelerate penetration testing - find more bugs, more quickly.</span>
+                                </a>
+                                <a href="https://portswigger.net/solutions/automated-security-testing" class="link-block-white" data-ga-click-label="solutions-automated-penetration-testing">
+                                    <span><strong>Automated Scanning</strong></span>
+                                    <span>Scale dynamic scanning. Reduce risk. Save time/money.</span>
+                                </a>
+
+                                <a href="https://portswigger.net/solutions/bug-bounty-hunting" class="link-block-white" data-ga-click-label="solutions-bug-bounty-software">
+                                    <span><strong>Bug Bounty Hunting</strong></span>
+                                    <span>Level up your hacking and earn more bug bounties.</span>
+                                </a>
+                                <a href="https://portswigger.net/solutions/compliance" class="link-block-white" data-ga-click-label="solutions-compliance">
+                                    <span><strong>Compliance</strong></span>
+                                    <span>Enhance security monitoring to comply with confidence.</span>
+                                </a>
+                            </div>
+                            <a href="https://portswigger.net/solutions" class="chevron-after" data-ga-click-label="solutions-all">View all solutions</a>
+                        </div>
+
+                        <div>
+                            <div class="container-cards-lists-white">
+                                <a href="https://portswigger.net/burp/enterprise/resources/enterprise-edition-vs-professional" data-ga-click-label="feature-product-burp-comparison">
+                                    <p><strong>Product comparison</strong></p>
+                                    <p>What's the difference between Pro and Enterprise Edition?</p>
+                                    <img src="./index_files/burp-suite.jpg" alt="Burp Suite Professional vs Burp Suite Enterprise Edition">
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mega-nav-content mega-nav-content-6">
+                <div class="section-white-medium-no-padding">
+                    <div class="container-columns-66-percent-right">
+                        <div>
+                            <div class="container-columns">
+                                <a href="https://portswigger.net/support" class="link-block-white" data-ga-click-label="support-center">
+                                    <span><strong>Support Center</strong></span>
+                                    <span>Get help and advice from our experts on all things Burp.</span>
+                                </a>
+                                <a href="https://portswigger.net/burp/documentation" class="link-block-white" data-ga-click-label="support-documentation">
+                                    <span><strong>Documentation</strong></span>
+                                    <span>Tutorials and guides for Burp Suite.</span>
+                                </a>
+                                <a href="https://portswigger.net/burp/documentation/desktop/getting-started" class="link-block-white" data-ga-click-label="support-get-started-professional">
+                                    <span><strong>Get Started - Professional</strong></span>
+                                    <span>Get started with Burp Suite Professional.</span>
+                                </a>
+                                <a href="https://portswigger.net/burp/documentation/enterprise/getting-started" class="link-block-white" data-ga-click-label="support-get-started-enterprise">
+                                    <span><strong>Get Started - Enterprise</strong></span>
+                                    <span>Get started with Burp Suite Enterprise Edition.</span>
+                                </a>
+                                <a href="https://forum.portswigger.net/" class="link-block-white" data-ga-click-label="support-user-forum">
+                                    <span><strong>User Forum</strong></span>
+                                    <span>Get your questions answered in the User Forum.</span>
+                                </a>
+                                <a href="https://portswigger.net/burp/releases" class="link-block-white" data-ga-click-label="support-releases">
+                                    <span><strong>Downloads</strong></span>
+                                    <span>Download the latest version of Burp Suite.</span>
+                                </a>
+                            </div>
+                            <a href="https://portswigger.net/support" class="chevron-after" data-ga-click-label="support-all">Visit the Support Center</a>
+                        </div>
+
+                        <div>
+                            <div class="container-cards-lists-white">
+                                <a href="https://portswigger.net/burp/releases" data-ga-click-label="feature-burp-software-downloads">
+                                    <p><strong>Downloads</strong></p>
+                                    <p>Download the latest version of Burp Suite.</p>
+                                    <img src="./index_files/latest-burp-suite-software-download.jpg" alt="The latest version of Burp Suite software for download">
+                                </a>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+</div>
+        </header>
+        
+
+
+<!------------------------------------------- HEADER END -->
+
+
+<div no-keyword-injection="" class="wrapper">
+    <div class="hero theme-community-6">
+        <div class="container-columns">
+            <div>
+                <h1 class="heading-1 heading-navy-1">Secure <span>your world.</span></h1>
+                <p class="intro">PortSwigger products help more than 70,000 professionals - at over 16,000 organizations - to secure the web and speed up software delivery.</p>
+                <div class="container-buttons-left">
+                    <a class="button-orange" href="https://portswigger.net/burp">Find out more</a>
+                </div>
+            </div>
+            <img alt="PortSwigger" src="./index_files/portswigger-homepage-hero.jpg">
+        </div>
+    </div>
+
+    <div class="section-full-width theme-white">
+        <div class="container-two-columns spacer">
+            <div class="container-buttons">
+                <img alt="Customers Choice" src="./index_files/customers-choice.jpg">
+                <div>
+                    <h2 class="heading2-dark-blue" id="best-in-class-for-security-testing">"Best in class for security testing"</h2>
+                </div>
+            </div>
+            <div class="container-buttons">
+                <img alt="G2 Leader Winter 2022" src="./index_files/g2-winter-leader-22.jpg">
+                <div>
+                    <h2 class="heading2-dark-blue" id="a-must-have-tool-for-security-engineers">"A must-have tool for security engineers"</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container-logos spacer">
+            <img alt="Amazon" src="./index_files/amazon.svg">
+            <img alt="Google" src="./index_files/google.svg">
+            <img alt="Barclays" src="./index_files/barclays.svg">
+            <img alt="FedEx" src="./index_files/fedex.svg">
+            <img alt="AXA" src="./index_files/axa.svg">
+        </div>
+    </div>
+    <div class="section-full-width theme-navy-1 text-center">
+        <h2 class="heading-1 heading-white" id="everything-you-need-to-stay-ahead">Everything you need to <span>stay ahead</span></h2>
+        <p class="intro spacer">Software and expertise for everyone who needs to <strong>secure the web</strong></p>
+        <div class="container-columns-with-labels spacer">
+
+            <a class="container-cards-white-medium-space-between" href="https://portswigger.net/burp">
+                <img alt="Burp suite" src="./index_files/burp-suite(1).jpg">
+                <div>
+                    <img alt="Burp suite logo" src="./index_files/burp-suite-small.svg">
+                    <p>The most widely used web application security testing software.</p>
+                    <span class="chevron-after">Find out more</span>
+                </div>
+                <span class="container-label-blue-80">Test</span>
+            </a>
+
+            <a class="container-cards-white-medium-space-between" href="https://portswigger.net/web-security">
+                <img alt="The Web Security Academy" src="./index_files/web-security-academy.jpg">
+                <div>
+                    <img alt="Web Security Academy logo" src="./index_files/academy-small.svg">
+                    <p>Boost your cybersecurity skills - with free, online web security training.</p>
+                    <span class="chevron-after">Find out more</span>
+                </div>
+                <span class="container-label-purple">Train</span>
+            </a>
+
+        </div>
+        <div class="container-columns-with-labels">
+            <a class="container-cards-white-medium-space-between" href="https://portswigger.net/research">
+                <img alt="PortSwigger Research" src="./index_files/portswigger-research.jpg">
+                <div>
+                    <img alt="PortSwigger Research logo" src="./index_files/research-small.svg">
+                    <p>Learn about the latest security exploits - to stay ahead of emerging threats.</p>
+                    <span class="chevron-after">Find out more</span>
+                </div>
+                <span class="container-label-teal">Discover</span>
+            </a>
+            <a class="container-cards-white-medium-space-between" href="https://portswigger.net/web-security/certification">
+                <img alt="Burp Suite Certified" src="./index_files/validate-your-certification.svg">
+                <div>
+                    <img alt="Burp Suite Certified Practitioner logo" src="./index_files/certification-resources-block.png">
+                    <p>Take control of your security career - become a Burp Suite Certified Practitioner.</p>
+                    <span class="chevron-after">Find out more</span>
+                </div>
+                <span class="container-label-orange">Certify</span>
+            </a>
+        </div>
+    </div>
+    <div class="section-full-width theme-white text-center">
+        <h2 class="heading-1 heading-navy-1" id="our-latest-news-and-activity"><span>Our</span> latest news <span>and</span> activity</h2>
+    </div>
+
+        <div class="section-full-width theme-community-6">
+        <div class="container-columns-coloured">
+
+<a href="https://portswigger.net/daily-swig/were-going-teetotal-its-goodbye-to-the-daily-swig" class="purple-80">
+    <img src="./index_files/dailyswig-white-logo-200.svg" alt="The Daily Swig">
+    <sup>
+        <strong>March 02, 2023</strong></sup>
+    <p>We’re going teetotal – It’s goodbye to The Daily Swig</p>
+    <span class="chevron-after">Read more</span>
+</a>
+<a href="https://portswigger.net/blog/new-burp-suite-enterprise-edition-pay-as-you-scan-pricing" class="orange">
+    <img src="./index_files/portswigger-white-logo-200.svg" alt="PortSwigger">
+    <sup>
+        <strong>April 25, 2023</strong></sup>
+    <p>New: Burp Suite Enterprise Edition Pay as you scan pricing</p>
+    <span class="chevron-after">Read more</span>
+</a>
+<a href="https://portswigger.net/research/ambushed-by-angularjs-a-hidden-csp-bypass-in-piwik-pro" class="teal-80">
+    <img src="./index_files/portswigger-research-white-logo-200.svg" alt="PortSwigger research">
+    <sup>
+        <strong>April 28, 2023</strong></sup>
+    <p>Ambushed by AngularJS: a hidden CSP bypass in Piwik PRO</p>
+    <span class="chevron-after">Read more</span>
+</a>
+<a href="https://portswigger.net/blog/new-burp-suite-enterprise-edition-unlimited-pricing" class="orange">
+    <img src="./index_files/portswigger-white-logo-200.svg" alt="PortSwigger">
+    <sup>
+        <strong>March 30, 2023</strong></sup>
+    <p>New: Burp Suite Enterprise Edition Unlimited pricing</p>
+    <span class="chevron-after">Read more</span>
+</a>
+<a href="https://portswigger.net/research/the-curl-quirk-that-exposed-burp-suite-amp-google-chrome" class="teal-80">
+    <img src="./index_files/portswigger-research-white-logo-200.svg" alt="PortSwigger research">
+    <sup>
+        <strong>March 28, 2023</strong></sup>
+    <p>The curl quirk that exposed Burp Suite &amp;amp; Google Chrome</p>
+    <span class="chevron-after">Read more</span>
+</a>
+<a href="https://portswigger.net/daily-swig/bug-bounty-radar-the-latest-bug-bounty-programs-for-march-2023" class="purple-80">
+    <img src="./index_files/dailyswig-white-logo-200.svg" alt="The Daily Swig">
+    <sup>
+        <strong>February 28, 2023</strong></sup>
+    <p>Bug Bounty Radar</p>
+    <span class="chevron-after">Read more</span>
+</a>        </div>
+    </div>
+
+
+    <div class="section-full-width theme-community-6">
+        <div class="container-buttons">
+            <a class="button-orange" href="https://portswigger.net/blog">Read more on our blog</a>
+        </div>
+    </div>
+    <div class="section-full-width theme-white text-center">
+        <h2 class="heading-1 heading-navy-1" id="get-to-know-the-portswigger-community"><span>Get to know</span> the PortSwigger community</h2>
+    </div>
+    <div class="section-full-width theme-white spacer">
+        <div class="container-columns-profiles">
+            <div class="vertical-space-between">
+                <div class="text-center">
+                    <h2 class="heading2-dark-blue" id="connect-with-us">Connect <span>with us</span></h2>
+                    <div>
+                        <a class="button-icon-solid-grey-65-link" href="https://twitter.com/PortSwigger"><span class="icon-twitter"></span></a>
+                        <a class="button-icon-solid-grey-65-link" href="https://www.linkedin.com/company/portswigger"><span class="icon-linkedin"></span></a>
+                        <a class="button-icon-solid-grey-65-link" href="http://youtube.com/c/PortSwiggerTV"><span class="icon-youtube"></span></a>
+                    </div>
+                </div>
+                <div class="container-cards">
+                    <a href="https://portswigger.net/blog/burp-suite-tips-from-power-user-and-hackfluencer-stok">
+                        <div>
+                            <img alt="Stok" src="./index_files/community-stok.jpg">
+                        </div>
+                        <p class="paragraph-dark-blue"><strong>Top tips from a Burp Suite fanboy</strong></p>
+                        <span class="chevron-after">Find out more</span>
+                    </a>
+                    <a href="https://portswigger.net/blog/get-started-with-devsecops-insights-from-aleksandr-krasnov-product-security-engineer">
+                        <div>
+                            <img alt="Aleksandr Krasnov" src="./index_files/community-aleksandr.jpg">
+                        </div>
+                        <p class="paragraph-dark-blue"><strong>DevSecOps Insights from Aleksandr Krasnov</strong></p>
+                        <span class="chevron-after">Find out more</span>
+                    </a>
+                </div>
+            </div>
+            <a href="https://portswigger.net/daily-swig/i-thought-it-was-a-complete-fluke-katie-paxton-fear-on-her-bug-bounty-baptism-and-why-ai-will-never-fully-replace-security-researchers">
+                <div>
+                    <img alt="Katie Paxton-Fear" src="./index_files/community-katie.jpg">
+                </div>
+                <p class="paragraph-dark-blue"><strong>Katie Paxton-Fear on her bug bounty baptism and why AI will never fully replace security researchers</strong></p>
+                <span class="chevron-after">Find out more</span>
+            </a>
+        </div>
+        <div class="container-columns-profiles">
+            <a href="https://portswigger.net/daily-swig/train-the-basics-bug-bounty-hunter-xel-on-forging-a-lucrative-career-in-ethical-hacking">
+                <div>
+                    <img alt="Xel" src="./index_files/community-xel.jpg">
+                </div>
+                <p class="paragraph-dark-blue"><strong>Forging a lucrative career in ethical hacking - Xel interviewed by The Daily Swig</strong></p>
+                <span class="chevron-after">Find out more</span>
+            </a>
+            <a class="button-play" target="_blank" href="https://youtu.be/vgYzICDaNhM" savefrom_lm_index="2" savefrom_lm="1">
+                <div>
+                    <img alt="Dafydd S" src="./index_files/daf-s.jpg">
+                </div>
+                <p class="paragraph-dark-blue"><strong>Dafydd Stuttard - PortSwigger founder and Chief Swig - ask me anything</strong></p>
+                <span class="chevron-after">Find out more</span>
+            </a><span style="padding: 0; margin: 0; margin-left: 5px;"><a href="http://savefrom.net/?url=https%3A%2F%2Fyoutu.be%2FvgYzICDaNhM&amp;utm_source=opera-chromium&amp;utm_medium=extensions&amp;utm_campaign=link_modifier" target="_blank" title="Get a direct link" savefrom_lm="1" savefrom_lm_is_link="1" style="background-image: url(&quot;data:image/gif;base64,R0lGODlhEAAQAOZ3APf39+Xl5fT09OPj4/Hx8evr6/3+/u7u7uDh4OPi497e3t7e3/z8/P79/X3GbuXl5ubl5eHg4WzFUfb39+Pj4lzGOV7LOPz7+/n6+vn5+ZTLj9/e387Ozt7f3/7+/vv7/ISbePn5+m/JV1nRKXmVbkCnKVrSLDqsCuDh4d/e3uDn3/z7/H6TdVeaV1uSW+bn5v39/eXm5eXm5kyHP/f39pzGmVy7J3yRd9/f3mLEKkXCHJbka2TVM5vaZn6Wdfn6+YG/c/r5+ZO/jeLi41aHTIeageLn4f39/vr6+kzNG2PVM5i+lomdf2CXYKHVmtzo2YXNeDqsBebl5uHh4HDKWN3g3kKqEH6WeZHTXIPKdnSPbv79/pfmbE7PHpe1l4O8dTO5DODg4VDLIlKUUtzo2J7SmEWsLlG4NJbFjkrJHP7+/VK5Nfz8+zmnC3KKa+Hg4OHh4Y63j/3+/eDg4Ojo6P///8DAwP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAHcALAAAAAAQABAAAAfWgHd2g4SFhYJzdYqLjIpzgx5bBgYwHg1Hk2oNDXKDFwwfDF5NLmMtcStsn4MhGT8YS04aGmU1QRhIGYMTADQAQlAODlloAMYTgwICRmRfVBISIkBPKsqDBAREZmcVFhYVayUz2IMHB1dWOmImI2lgUVrmgwUFLzdtXTxKSSduMfSD6Aik48MGlx05SAykM0gKhAAPAhTB0oNFABkPHg5KMIBCxzlMQFQZMGBIggSDpsCJgGDOmzkIUCAIM2dOhEEcNijQuQDHgg4KOqRYwMGOIENIB90JBAA7&quot;); background-repeat: no-repeat; width: 16px; height: 16px; display: inline-block; border: none; text-decoration: none; padding: 0px; position: relative;"></a></span>
+        </div>
+    </div>
+
+    <div class="hero theme-navy-1">
+        <img alt="Globe" src="./index_files/banner-globe.jpg">
+      
+        <div class="text-center">
+          <h2 class="heading-1 heading-white spacer" id="burp-suite-is-trusted-globally">Burp Suite is trusted<span> globally</span></h2>
+      
+          <div class="container-buttons spacer">
+            <div>
+              <div>
+                <p class="heading0-purple-50">71,951</p>
+                <p>Burp Suite customers</p>
+              </div>
+              <div>
+                <p class="heading0-teal-70">166</p>
+                <p>Countries</p>
+              </div>
+            </div>
+            <div>
+              <div>
+                <p class="heading0-orange-35">+73</p>
+                <p>Net Promoter Score</p>
+              </div>
+              <div>
+                <p class="heading0-blue-60">16,430</p>
+                <p>Organizations</p>
+              </div>
+            </div>
+          </div>
+      
+        </div>
+    </div>
+      
+    <div class="section-full-width theme-white text-center">
+        <h2 class="heading-1 heading-navy-1" id="our-people-make-the-difference">Our people <span>make the difference</span></h2>
+        <p class="intro">Our culture is our most important superpower, and our biggest differentiator. </p>
+        <p class="intro">Meet the diverse group of people who make up the PortSwigger team.</p>
+        <div class="container-buttons">
+            <a class="button-orange" href="https://portswigger.net/about/team">Meet the Swiggers</a>
+        </div>
+    </div>
+    <div class="hero spacer">
+        <img alt="Staff quote banner" src="./index_files/full-width-staff-banner.jpg">
+    </div>
+    <div class="section-full-width theme-white text-center spacer">
+        <h2 class="heading-1 heading-navy-1" id="security-resources-for-everyone"><span>Security resources</span> for everyone</h2>
+    </div>
+    <div class="section-full-width theme-community-6">
+        <div class="container-columns-block">
+            <a href="https://portswigger.net/blog">
+                <img alt="The PortSwigger blog" src="./index_files/portswigger-blog.jpg">
+                <div>
+                    <h2 class="heading2-dark-blue">The PortSwigger Blog</h2>
+                    <p>Get the inside scoop on the latest Burp Suite news, tech, and interviews - from right across the PortSwigger team.</p>
+                    <span class="chevron-after">Read more</span>
+                </div>
+            </a>
+        </div>
+        <div class="container-columns-block">
+            <a href="https://portswigger.net/research/top-10-web-hacking-techniques-of-2022">
+                <img alt="The top 10 web hacking techniques of 2022" src="./index_files/top-ten-hacking-tech-2022.png">
+                <h3 class="heading3-dark-blue">The top 10 web hacking techniques of 2022</h3>
+                <p>PortSwigger Research's annual community-powered effort to identify the year's must-read web security research.</p>
+                <span class="chevron-after">Read more</span>
+            </a>
+            <a href="https://portswigger.net/burp/enterprise/resources/enterprise-edition-vs-professional">
+                <img alt="Burp Suite Enterprise Edition vs Burp Suite Professional" src="./index_files/enterprise-vs-professional.jpg">
+                <h3 class="heading3-dark-blue">Burp Suite Enterprise Edition vs. Burp Suite Professional</h3>
+                <p>Find the Burp Suite that's right for your use-case, and discover a world of possibility.</p>
+                <span class="chevron-after">Read more</span>
+            </a>
+            <a href="https://portswigger.net/web-security/certification">
+                <img alt="Burp Suite Certified Practitioner accreditation" src="./index_files/certification-product.png">
+                <h3 class="heading3-dark-blue">Become a Burp Suite Certified Practitioner</h3>
+                <p>Prove your ability to detect and exploit common web vulnerabilities, with a Burp Suite certification.</p>
+                <span class="chevron-after">Read more</span>
+            </a>
+            <a href="https://portswigger.net/web-security/getting-started">
+                <img alt="Getting started with the Web Security Academy" src="./index_files/getting-started-with-the-web-security-academy.jpg">
+                <h3 class="heading3-dark-blue">Get started with the Web Security Academy</h3>
+                <p>Boost your cybersecurity skills, and get off to a flying start in the Web Security Academy.</p>
+                <span class="chevron-after">Read more</span>
+            </a>
+            <a href="https://portswigger.net/blog/burp-suite-roadmap-update-january-2023">
+                <img alt="Burp Suite roadmap update January 2023" src="./index_files/burp-suite-roadmap-update-january-2023.png">
+                <h3 class="heading3-dark-blue">Burp Suite roadmap update: January 2023</h3>
+                <p>Discover the new functionality and features we have planned for the Burp Suite family over the next 6 months.</p>
+                <span class="chevron-after">Read more</span>
+            </a>
+            <a href="https://portswigger.net/burp/enterprise/resources/video-tutorials">
+                <img alt="Burp Suite Enterprise Edition video tutorials" src="./index_files/enterprise-edition-video-tutorials.jpg">
+                <h3 class="heading3-dark-blue">Burp Suite Enterprise Edition video tutorials</h3>
+                <p>Learn the basics of Burp Suite Enterprise Edition - from site configuration to CI/CD integration.</p>
+                <span class="chevron-after">Read more</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+    <footer class="wrapper">
+        <div class="container">
+            <div>
+                <p>Burp Suite</p>
+                <a href="https://portswigger.net/burp/vulnerability-scanner">Web vulnerability scanner</a>
+                <a href="https://portswigger.net/burp">Burp Suite Editions</a>
+                <a href="https://portswigger.net/burp/releases">Release Notes</a>
+            </div>
+            <div>
+                <p>Vulnerabilities</p>
+                <a href="https://portswigger.net/web-security/cross-site-scripting">Cross-site scripting (XSS)</a>
+                <a href="https://portswigger.net/web-security/sql-injection">SQL injection</a>
+                <a href="https://portswigger.net/web-security/csrf">Cross-site request forgery</a>
+                <a href="https://portswigger.net/web-security/xxe">XML external entity injection</a>
+                <a href="https://portswigger.net/web-security/file-path-traversal">Directory traversal</a>
+                <a href="https://portswigger.net/web-security/ssrf">Server-side request forgery</a>
+            </div>
+            <div>
+                <p>Customers</p>
+                <a href="https://portswigger.net/organizations">Organizations</a>
+                <a href="https://portswigger.net/testers">Testers</a>
+                <a href="https://portswigger.net/developers">Developers</a>
+            </div>
+            <div>
+                <p>Company</p>
+                <a href="https://portswigger.net/about">About</a>
+                <a href="https://portswigger.net/news">PortSwigger News</a>
+                <a href="https://portswigger.net/careers">Careers</a>
+                <a href="https://portswigger.net/about/contact">Contact</a>
+                <a href="https://portswigger.net/legal">Legal</a>
+                <a href="https://portswigger.net/privacy">Privacy Notice</a>
+            </div>
+            <div>
+                <p>Insights</p>
+                <a href="https://portswigger.net/web-security">Web Security Academy</a>
+                <a href="https://portswigger.net/blog">Blog</a>
+                <a href="https://portswigger.net/research">Research</a>
+            </div>
+            <div>
+                <a href="https://portswigger.net/"><img src="./index_files/portswigger-logo.svg" alt="PortSwigger Logo" class="footer-logo"></a>
+                <a class="button-outline-blue-small camelcase" href="https://twitter.com/Burp_Suite" rel="noreferrer"><span class="icon-twitter"></span>  Follow us</a>
+                <p class="grey">© 2023 PortSwigger Ltd.</p>
+            </div>
+        </div>
+    </footer>
+    <a href="https://portswigger.net/#top" class="back-to-top allow-for-pinned"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26"><polygon points="4.07 14.7 5.03 15.78 12.48 9.13 19.94 15.78 20.9 14.7 12.48 7.2 4.07 14.7" fill="#f63"></polygon><path d="M13,0A13,13,0,1,0,26,13,13,13,0,0,0,13,0Zm0,24.56A11.56,11.56,0,1,1,24.56,13,11.58,11.58,0,0,1,13,24.56Z" fill="#f63"></path></svg></a>
+
+    
+</body></html>
